@@ -3,7 +3,7 @@
 //namespace utilities {
  class clicli {
    
-  private:
+ // private:
 
   public:
    clicli();

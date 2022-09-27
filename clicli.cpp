@@ -2,9 +2,9 @@
 #include "Arduino.h"
 //namespace utilities {
 
-cli::cli() {}
+clicli::clicli() {}
 
-void cli::begin() {
+void clicli::begin() {
   Serial.begin(115200);
 }
 //}
