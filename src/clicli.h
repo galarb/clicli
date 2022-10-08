@@ -4,8 +4,8 @@
 
   public:
    clicli();
-   void begin();   
-   void run();   
+   void begin();   //must be called from  void setup()
+   void run();   //must be called from  void loop()
 
  };
 #endif 

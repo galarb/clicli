@@ -4,16 +4,17 @@
 
                A Simple Command Line Interface 
                 
-              Feature             |  CLI Usage
----------------------------------------------
- Digial Write to a specific pin   |  h (pin)
- Analog Write to pwm ports        |  l (pin)
- Digital Read                     |  r (pin)
- Analog Read                      |  e (pin) 
+              Feature                |  CLI Usage
+___________________________________________________
+ Digial Write HIGH to a specific pin |  h (pin)
+ Digial Write LOW to a specific pin  |  l (pin)
+ Analog Write to pwm ports           |  a (pin) (value)
+ Digital Read                        |  r (pin)
+ Analog Read                         |  e (pin) 
 
                
       by Gal Arbel
-      July 2022
+      Oct 2022
 
       Credits: Shimi Mahluf 
 
@@ -74,33 +75,44 @@ void clicli::run() {
        case 'h': //Set port to HIGH
         pinMode(command[1],OUTPUT);
         digitalWrite(command[1],HIGH);
-        Serial.println("Pin SET");   
+        Serial.print("Pin "); 
+        Serial.print(command[1]);   
+        Serial.println(" is SET");   
         delay(1000);
         break;
        case 'l': // Set port to LOW
         pinMode(command[1],OUTPUT);
         digitalWrite(command[1],LOW);
-        Serial.println("Pin RESET");   
+        Serial.print("Pin "); 
+        Serial.print(command[1]);   
+        Serial.println(" is RESET");   
         delay(1000);
         break;
        
        case 'a': // analog Write to pwm ports
         pinMode(command[1],OUTPUT);
         analogWrite(command[1],command[2]);
-        Serial.println("writing analog value");   
+        Serial.print("Writing "); 
+        Serial.print(command[2]);   
+        Serial.print(" to pin ");  
+        Serial.println(command[1]);   
         delay(1000);
         break;
 
        case 'r': // digital read
         pinMode(command[1],INPUT);
-        Serial.print("Pin Value ="); 
+        Serial.print("Pin "); 
+        Serial.print(command[1]);   
+        Serial.print(" Value = "); 
         Serial.println(digitalRead(command[1]));   
         delay(1000);
         break;
 
         case 'e': // analog read
         pinMode(command[1],INPUT);
-        Serial.print("Pin Value ="); 
+        Serial.print("Pin "); 
+        Serial.print(command[1]);   
+        Serial.print(" Value = "); 
         Serial.println(analogRead(command[1]));   
         delay(1000);
         break;
