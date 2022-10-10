@@ -32,16 +32,3 @@ will read the value of the Analog input A0
 
 
 You can add more functionalities and shortcuts by editing the .cpp and .h files
-
-Here's an example fo simple useage (.ino file)
-
-#include "clicli.h"
-clicli mycli;  
-
-void setup() { 
-    mycli.begin();
- }
-
-void loop() { 
-  mycli.run();
- }
