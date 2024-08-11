@@ -10,7 +10,9 @@ ___________________________________________________
  Digial Write LOW to a specific pin  |  l (pin)
  Analog Write to pwm ports           |  a (pin) (value)
  Digital Read                        |  r (pin)
- Analog Read                         |  e (pin) 
+ Analog Read                         |  e (pin)
+ all pins SET                        |  q
+ all pins RESET                      |  w 
 
                
       by Gal Arbel
@@ -30,6 +32,7 @@ clicli::clicli() {}
 
 void clicli::begin() {
   Serial.begin(115200);
+  Serial.println("\nenjoy using clicli!");
 }
 void clicli::run() {
 
@@ -117,6 +120,24 @@ void clicli::run() {
         delay(1000);
         break;
        
+       case 'q': //Set port to HIGH
+        for(int i = 2; i < 14; i++){
+          pinMode(i ,OUTPUT);
+          digitalWrite(i, HIGH);
+
+        }
+        Serial.println("all Pin are SET"); 
+        delay(1000);
+        break;
+      case 'w': //Set port to HIGH
+        for(int i = 13; i > 1; i--){
+          pinMode(i ,OUTPUT);
+          digitalWrite(i, LOW);
+
+        }
+        Serial.println("all Pin are RESET"); 
+        delay(1000);
+        break;
        message_pos = 0;     //Reset for the next message
       }
    }

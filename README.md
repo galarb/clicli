@@ -15,7 +15,10 @@ ___________________________________________________
  Digial Write LOW to a specific pin  |  l (pin)
  Analog Write to pwm ports           |  a (pin) (value)
  Digital Read                        |  r (pin)
- Analog Read                         |  e (pin) 
+ Analog Read                         |  e (pin)
+ set all pin to HIGH                 |  q
+ RESET all pins                      |  w
+
 
 for example:
 in the Serial Monitor, just click 
